@@ -123,23 +123,23 @@ function generatePassword() {
   if (!options) return null;
 
   if (options.hasspecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacters.length),
+    possibleCharacters = possibleCharacters.concat(specialCharacters),
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
   if (options.hasnumericCharacters) {
-    possibleCharacters = possibleCharacters.concat(numericCharacters.length),
+    possibleCharacters = possibleCharacters.concat(numericCharacters),
     guaranteedCharacters.push(getRandom(numericCharacters));
   }
   if (options.haslowerCasedCharacters) {
-    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters.length),
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters),
     guaranteedCharacters.push(getRandom(lowerCasedCharacters));
   }
   if (options.hasupperCasedCharacters) {
-    possibleCharacters = possibleCharacters.concat(upperCasedCharacters.length),
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters),
     guaranteedCharacters.push(getRandom(upperCasedCharacters));
   }
  
-  for (var i = 0; i < guaranteedCharacters.length; i++) {result[i] = guaranteedCharacters[i];}
+  for (var i = 0; i < possibleCharacters; i++) {result[i] = guaranteedCharacters.length[i];}
   return result.join('');
 }
 
