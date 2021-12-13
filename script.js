@@ -70,8 +70,7 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ]
-var result =  [''];
-var possibleCharacters = []; 
+
 
 function getPasswordOptions() {
   var length = prompt('How many characters would you like the password to be?');
