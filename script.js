@@ -124,9 +124,39 @@ function getPasswordOptions() {
                            hasNumericCharacters: hasNumericCharacters,
                            hasLowerCasedCharacters: hasLowerCasedCharacters,
                            hasUpperCasedCharacters: hasUpperCasedCharacters};
-    return randElement;
+    return passwordOptions;
 }
 
+function getRandom(array) {var randIndex = Math.floor(Math.random() * array.length);
+var randElement = array[randIndex];
+return randElement;}
+
+function generatePassword() {
+  var options = getPasswordOptions();
+  var result = [];
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
+  if (!options) return null;
+
+  if (options.hasSpecialCharacters) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters)
+    guaranteedCharacters.push(getRandom(specialCharacters));
+  }
+  if (options.hasNumericCharacters) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters)
+    guaranteedCharacters.push(getRandom(numericCharacters));
+  }
+  if (options.hasUpperCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters)
+    guaranteedCharacters.push(getRandom(upperCasedCharacters));
+  }
+  if (options.haslowerCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters)
+    guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+  }
+  for (var i = 0; i < guaranteedCharacters.length; i++) {result[i] = guaranteedCharacters[i];}
+  return result.join('');
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
