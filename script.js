@@ -77,6 +77,7 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ]
+var result =  '' ;
 
 function getPasswordOptions() {
   var length = parseInt(prompt('How many characters would you like the password to be?') );
@@ -122,19 +123,19 @@ function generatePassword() {
   if (!options) return null;
 
   if (options.hasspecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacters[Math.random.length]),
+    possibleCharacters = possibleCharacters.concat(specialCharacters.length),
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
   if (options.hasnumericCharacters) {
-    possibleCharacters = possibleCharacters.concat(numericCharacters[Math.random.length]),
+    possibleCharacters = possibleCharacters.concat(numericCharacters.length),
     guaranteedCharacters.push(getRandom(numericCharacters));
   }
   if (options.haslowerCasedCharacters) {
-    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters[Math.random.length]),
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters.length),
     guaranteedCharacters.push(getRandom(lowerCasedCharacters));
   }
   if (options.hasupperCasedCharacters) {
-    possibleCharacters = possibleCharacters.concat(upperCasedCharacters[Math.random.length]),
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters.length),
     guaranteedCharacters.push(getRandom(upperCasedCharacters));
   }
  
