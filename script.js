@@ -40,14 +40,7 @@ var numericCharacters = [
   '0',
 ]
 
-var lowerCasedCharacters = [
-  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-]
+var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',]
 
 var upperCasedCharacters = [
   'A',
@@ -77,10 +70,11 @@ var upperCasedCharacters = [
   'Y',
   'Z',
 ]
-var result =  '' ;
+var result =  [''];
+var possibleCharacters = []; 
 
 function getPasswordOptions() {
-  var length = parseInt(prompt('How many characters would you like the password to be?') );
+  var length = prompt('How many characters would you like the password to be?');
   if (Number.isNaN(length)){
     alert('Password length must be a number.');
     return null; }
@@ -89,6 +83,8 @@ function getPasswordOptions() {
     return null;}
   if (length > 128) {alert('Password length cannot exceed 128 characters');
     return null;}
+    else {alert("Your password will be " + length + " characters long.");}
+
   var hasspecialCharacters = confirm('Click OK to confirm using special characters.');
   var hasnumericCharacters = confirm('Click OK to confirm using numeric characters.');
   var haslowerCasedCharacters = confirm('Click OK to confirm using lower cased characters.');
@@ -139,7 +135,7 @@ function generatePassword() {
     guaranteedCharacters.push(getRandom(upperCasedCharacters));
   }
  
-  for (var i = 0; i < possibleCharacters; i++) {result[i] = guaranteedCharacters.length[i];}
+  for (var i = 0; i < possibleCharacters.length; i++) {result[i] = guaranteedCharacters[i];}
   return result.join('');
 }
 
